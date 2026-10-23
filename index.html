@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Feira Arte e Sabor | Artesanato e gastronomia em São Pedro de Alcântara</title>
+<meta name="description" content="Feira de artesanato e gastronomia de São Pedro de Alcântara. Todo segundo sábado do mês, das 9h às 17h, na Praça Leopoldo Francisco Kretzer. Artesanato feito à mão, música ao vivo e sabores de base alemã.">
+<meta name="theme-color" content="#1A1A1A">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Feira Arte e Sabor · Kunst und Geschmack">
+<meta property="og:description" content="Todo segundo sábado do mês, das 9h às 17h, na Praça Leopoldo Francisco Kretzer, em São Pedro de Alcântara.">
+<meta property="og:image" content="logo.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="icone-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Questrial&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --creme: #FAF6EC;
+    --creme-escuro: #F1EADA;
+    --grafite: #1A1A1A;
+    --grafite-suave: #4A4743;
+    --amarelo: #F4C41C;
+    --verde: #3E7D3A;
+    --vermelho: #C0392B;
+    --marrom: #8B5E34;
+    --linha: #DCD3C0;
+    --titulo: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --corpo: 'Questrial', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --gotica: 'Grenze Gotisch', 'Playfair Display', serif;
+    --raio: 10px;
+    --largura: 1080px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+  body {
+    margin: 0; overflow-x: hidden;
+    background: var(--creme); color: var(--grafite);
+    font-family: var(--corpo); font-size: 1.05rem; line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+  h1, h2, h3 { font-family: var(--titulo); font-weight: 600; line-height: 1.15; margin: 0; }
+  p { margin: 0; }
+  :focus-visible { outline: 3px solid var(--amarelo); outline-offset: 3px; border-radius: 4px; }
+
+  .envoltorio { width: 100%; max-width: var(--largura); margin: 0 auto; padding: 0 22px; }
+  .secao { padding: 88px 0; }
+  .estreito { max-width: 640px; margin: 0 auto; }
+  .centro { text-align: center; }
+  h2 { font-size: clamp(1.9rem, 6vw, 2.6rem); margin-bottom: 26px; }
+  .texto { display: grid; gap: 18px; color: var(--grafite-suave); }
+
+  /* Divisor com a florzinha da logo */
+  .divisor { display: flex; align-items: center; justify-content: center; gap: 16px; padding: 4px 22px; }
+  .divisor::before, .divisor::after { content: ''; height: 1px; width: min(120px, 28vw); background: var(--linha); }
+  .flor { width: 22px; height: 22px; flex: none; }
+
+  /* Botões */
+  .botoes { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+  .botao {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 50px; padding: 12px 26px; border-radius: var(--raio);
+    font: 1rem/1.2 var(--corpo); letter-spacing: .02em; text-decoration: none;
+    border: 1.5px solid var(--grafite);
+    transition: background-color .2s ease, color .2s ease;
+  }
+  .botao svg { width: 19px; height: 19px; flex: none; }
+  .botao-principal { background: var(--amarelo); border-color: var(--amarelo); color: var(--grafite); }
+  .botao-principal:hover { background: #E3B511; border-color: #E3B511; }
+  .botao-secundario { background: transparent; color: var(--grafite); }
+  .botao-secundario:hover { background: var(--grafite); color: var(--creme); }
+
+  /* Placeholders de foto */
+  .foto {
+    display: grid; place-items: center; text-align: center;
+    aspect-ratio: 4 / 3; padding: 20px; border-radius: var(--raio);
+    background: #E7E2D6; color: #5E5A53;
+    border: 1px dashed #B9B2A2;
+    font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
+  }
+  .foto img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+
+  /* 1 · Hero */
+  .hero { padding: max(40px, env(safe-area-inset-top)) 0 64px; text-align: center; }
+  .hero-logo { width: min(250px, 62vw); margin: 0 auto 26px; }
+  .hero h1 { display: grid; gap: 2px; }
+  .hero h1 .feira {
+    font-family: var(--titulo); font-weight: 500; font-size: .95rem; letter-spacing: .36em; text-transform: uppercase;
+    color: var(--grafite-suave);
+  }
+  .hero h1 .nome { font-family: var(--gotica); font-weight: 600; font-size: clamp(3.2rem, 15vw, 5.4rem); line-height: 1; }
+  .kunst { font-family: var(--gotica); font-weight: 500; font-size: 1.35rem; color: var(--marrom); margin-top: 6px; }
+  .tagline { font-family: var(--titulo); font-size: clamp(1.2rem, 4.6vw, 1.55rem); max-width: 26ch; margin: 26px auto 0; }
+  .info {
+    display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 4px 12px;
+    margin: 26px auto 30px; padding: 12px 18px;
+    border-block: 1px solid var(--grafite);
+    font-size: .98rem;
+  }
+  .info span + span::before { content: '·'; margin-right: 12px; color: var(--marrom); }
+
+  /* 3 · O que você encontra */
+  .grade-encontra { display: grid; gap: 34px; margin-top: 44px; }
+  .item { display: grid; grid-template-columns: 44px 1fr; gap: 6px 18px; align-items: start; }
+  .item svg { grid-row: span 2; width: 40px; height: 40px; color: var(--grafite); }
+  .item h3 { font-size: 1.25rem; }
+  .item p { color: var(--grafite-suave); }
+  .fotos { display: grid; gap: 14px; margin-top: 56px; }
+
+  /* 4 · Números */
+  .numeros { background: var(--grafite); color: var(--creme); padding: 64px 0; }
+  .numeros ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px 16px; text-align: center; }
+  .numeros strong { display: block; font-family: var(--titulo); font-weight: 600; font-size: clamp(1.9rem, 7vw, 2.8rem); line-height: 1.1; color: var(--amarelo); }
+  .numeros span { font-size: .85rem; letter-spacing: .16em; text-transform: uppercase; color: #CFC8B8; }
+
+  /* 5 e 6 · Tradição e apoio */
+  .duas-colunas { display: grid; gap: 36px; align-items: center; }
+  .apoio { background: var(--creme-escuro); }
+  .apoiadores { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+  .apoiadores .foto { aspect-ratio: auto; min-width: 150px; padding: 18px 22px; }
+
+  /* 7 · Quem está à frente */
+  .frente .foto { aspect-ratio: 3 / 2; margin-top: 36px; }
+
+  /* 8 · Visite */
+  .visite { background: var(--grafite); color: var(--creme); text-align: center; }
+  .visite h2 { color: var(--creme); max-width: 22ch; margin-inline: auto; }
+  .visite address { font-style: normal; color: #CFC8B8; margin-bottom: 30px; }
+  .visite .botao-secundario { color: var(--creme); border-color: var(--creme); }
+  .visite .botao-secundario:hover { background: var(--creme); color: var(--grafite); }
+  .visite .direct { margin-top: 30px; color: #CFC8B8; }
+  .visite .direct a { color: var(--amarelo); text-underline-offset: 4px; }
+
+  /* Rodapé */
+  .rodape { padding: 52px 22px calc(40px + env(safe-area-inset-bottom)); text-align: center; display: grid; gap: 8px; justify-items: center; }
+  .rodape img { width: 96px; margin-bottom: 10px; }
+  .rodape .nome-rodape { font-family: var(--titulo); font-size: 1.1rem; }
+  .rodape .nome-rodape em { font-family: var(--gotica); font-style: normal; font-size: 1.15rem; color: var(--marrom); }
+  .rodape small { color: var(--grafite-suave); font-size: .9rem; }
+  .instagram { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; }
+  .instagram:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .instagram svg { width: 20px; height: 20px; }
+
+  @media (min-width: 768px) {
+    .secao { padding: 120px 0; }
+    .grade-encontra { grid-template-columns: repeat(2, 1fr); gap: 44px 56px; }
+    .fotos { grid-template-columns: 1.4fr 1fr; grid-template-rows: auto auto; }
+    .fotos .foto:first-child { grid-row: span 2; aspect-ratio: auto; }
+    .numeros ul { grid-template-columns: repeat(4, 1fr); }
+    .duas-colunas { grid-template-columns: 1fr 1fr; gap: 64px; }
+  }
+  @media (min-width: 1080px) {
+    .grade-encontra { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="flor" viewBox="0 0 24 24">
+    <g fill="#F4C41C">
+      <circle cx="12" cy="6" r="4.6"/><circle cx="17.7" cy="10.2" r="4.6"/><circle cx="15.5" cy="17" r="4.6"/>
+      <circle cx="8.5" cy="17" r="4.6"/><circle cx="6.3" cy="10.2" r="4.6"/>
+    </g>
+    <circle cx="12" cy="12" r="2.2" fill="#1A1A1A"/>
+  </symbol>
+  <symbol id="icone-instagram" viewBox="0 0 24 24">
+    <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+    <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/>
+    <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/>
+  </symbol>
+  <symbol id="icone-mapa" viewBox="0 0 24 24">
+    <path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+    <circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+  </symbol>
+</svg>
+
+<header class="hero">
+  <div class="envoltorio">
+    <img class="hero-logo" src="logo.png" alt="Logo da Feira Arte e Sabor: barril com chapéu tirolês, flores amarelas e a frase Kunst und Geschmack" width="577" height="577">
+    <h1><span class="feira">Feira</span><span class="nome">Arte e Sabor</span></h1>
+    <p class="kunst">Kunst und Geschmack</p>
+    <p class="tagline">Artesanato feito à mão e sabores de São Pedro de Alcântara.</p>
+    <p class="info"><span>Todo segundo sábado do mês</span><span>9h às 17h</span><span>Praça Leopoldo Francisco Kretzer</span></p>
+    <div class="botoes">
+      <a class="botao botao-principal" href="#visite">
+        <svg aria-hidden="true"><use href="#icone-mapa"/></svg> Como chegar
+      </a>
+      <a class="botao botao-secundario" href="https://instagram.com/feiraartesabor" target="_blank" rel="noopener">
+        <svg aria-hidden="true"><use href="#icone-instagram"/></svg> Siga no Instagram
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="divisor" aria-hidden="true"><svg class="flor"><use href="#flor"/></svg></div>
+
+<main>
+  <section class="secao" id="historia">
+    <div class="envoltorio estreito">
+      <h2 class="centro">Nossa história</h2>
+      <div class="texto">
+        <p>Começou em junho de 2010, com a vontade de Marli e Nilzabete de dar lugar a quem faz com as próprias mãos.</p>
+        <p>Mais de uma década depois, a Feira Arte e Sabor reúne a cultura, o artesanato e a gastronomia de São Pedro de Alcântara.</p>
+        <p>Hoje a feira é ponto de encontro, de conversa e de muita alegria. Ali, a gente conhece gente e faz amizade que leva pra vida.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="encontra" style="padding-top:0">
+    <div class="envoltorio">
+      <h2 class="centro">O que você encontra</h2>
+      <div class="grade-encontra">
+        <div class="item">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M8 32 30 10"/><ellipse cx="31.5" cy="8.5" rx="2.2" ry="1" transform="rotate(-45 31.5 8.5)"/><path d="M14 30c4 2 10 1 14-4s3-11-2-12"/><circle cx="12" cy="11" r="3.5" fill="#F4C41C" stroke="none"/>
+          </svg>
+          <h3>Artesanato feito à mão</h3>
+          <p>25 expositores mostrando o que produzem, com venda na hora e encomendas.</p>
+        </div>
+        <div class="item">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 30c-6 4-14 1-14-7 0-6 5-10 10-9 3 .6 4 3 4 6M20 30c6 4 14 1 14-7 0-6-5-10-10-9-3 .6-4 3-4 6M20 20c-2 3-5 4-8 3M20 20c2 3 5 4 8 3"/><circle cx="33" cy="8" r="3.5" fill="#F4C41C" stroke="none"/>
+          </svg>
+          <h3>Sabores de base alemã</h3>
+          <p>A gastronomia local que é a cara da cidade.</p>
+        </div>
+        <div class="item">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M15 29V9l18-4v20"/><circle cx="11" cy="29" r="4"/><circle cx="29" cy="25" r="4"/><path d="M15 15l18-4"/><circle cx="7" cy="9" r="3.5" fill="#F4C41C" stroke="none"/>
+          </svg>
+          <h3>Música ao vivo e dança</h3>
+          <p>Apresentações que fazem a praça virar palco.</p>
+        </div>
+        <div class="item">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <ellipse cx="17" cy="23" rx="9" ry="11.5"/><path d="M10 20c3 2 5-2 7 0s4 2 7 0M10 27c3 2 5-2 7 0s4 2 7 0"/><path d="M27 13l8-8"/><circle cx="33" cy="30" r="3.5" fill="#F4C41C" stroke="none"/>
+          </svg>
+          <h3>Oficinas abertas</h3>
+          <p>Pintura de casca de ovo para a Osterbaum, bolachas de Natal e artesanato, feitas pelos próprios feirantes.</p>
+        </div>
+        <div class="item">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M7 14h26v19H7z"/><path d="M5 9h30v5H5zM20 9v24"/><path d="M20 9c-3-5-9-5-9-2s5 2 9 2c4 0 9 1 9-2s-6-3-9 2"/><circle cx="33" cy="33" r="3.5" fill="#F4C41C" stroke="none"/>
+          </svg>
+          <h3>Encomendas</h3>
+          <p>Direto com quem produz.</p>
+        </div>
+      </div>
+
+      <!-- Fotos: troque cada <div class="foto"> por <div class="foto"><img src="fotos/NOME.jpg" alt="DESCRIÇÃO" loading="lazy"></div> -->
+      <div class="fotos">
+        <div class="foto" role="img" aria-label="Espaço para foto de artesão trabalhando">Foto: artesão trabalhando</div>
+        <div class="foto" role="img" aria-label="Espaço para foto das barracas na praça">Foto: barracas na praça</div>
+        <div class="foto" role="img" aria-label="Espaço para foto da gastronomia da feira">Foto: gastronomia da feira</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="numeros" aria-label="A feira em números">
+    <div class="envoltorio">
+      <ul>
+        <li><strong>2010</strong><span>desde</span></li>
+        <li><strong>25</strong><span>expositores</span></li>
+        <li><strong>2º sábado</strong><span>todo mês</span></li>
+        <li><strong>9h às 17h</strong><span>o dia inteiro</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="secao" id="tradicao">
+    <div class="envoltorio duas-colunas">
+      <div>
+        <h2>Tradição e cultura</h2>
+        <div class="texto">
+          <p>A cultura de base alemã vive na feira. Está na Osterbaum da praça, nas bolachas de Natal e no nosso Festival de Cucas, que já teve duas edições de sucesso.</p>
+        </div>
+      </div>
+      <div class="foto" role="img" aria-label="Espaço para foto do Festival de Cucas ou da Osterbaum">Foto: Festival de Cucas ou Osterbaum</div>
+    </div>
+  </section>
+
+  <section class="secao apoio" id="apoio">
+    <div class="envoltorio estreito">
+      <h2>Cultura que cresce com apoio</h2>
+      <div class="texto">
+        <p>A feira não para de crescer. Com a Lei Paulo Gustavo, criamos o projeto Brincadeiras Através das Gerações, que reuniu avós, pais e filhos brincando juntos. Com a Lei Aldir Blanc, garantimos os músicos em 2025 e mais conforto para quem visita.</p>
+        <p>Contamos com o apoio da Prefeitura de São Pedro de Alcântara e da Epagri.</p>
+      </div>
+      <div class="apoiadores">
+        <div class="foto" role="img" aria-label="Espaço para a logo da Prefeitura de São Pedro de Alcântara">Logo: Prefeitura</div>
+        <div class="foto" role="img" aria-label="Espaço para a logo da Epagri">Logo: Epagri</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao frente" id="frente">
+    <div class="envoltorio estreito centro">
+      <h2>Quem está à frente</h2>
+      <div class="texto">
+        <p>Marli e Nilzabete tocam a feira desde o primeiro dia, de forma voluntária. É o cuidado delas que mantém a Arte e Sabor viva há mais de uma década.</p>
+      </div>
+      <div class="foto" role="img" aria-label="Espaço para foto de Marli e Nilzabete">Foto: Marli e Nilzabete</div>
+    </div>
+  </section>
+
+  <section class="secao visite" id="visite">
+    <div class="envoltorio">
+      <svg class="flor" style="width:30px;height:30px;margin:0 auto 22px;display:block" aria-hidden="true"><use href="#flor"/></svg>
+      <h2>Todo segundo sábado do mês, a praça vira o lugar mais bonito da cidade. Vem viver de perto.</h2>
+      <address>Praça Leopoldo Francisco Kretzer, São Pedro de Alcântara, SC</address>
+      <div class="botoes">
+        <a class="botao botao-principal" href="https://www.google.com/maps/search/?api=1&amp;query=Pra%C3%A7a%20Leopoldo%20Francisco%20Kretzer%2C%20S%C3%A3o%20Pedro%20de%20Alc%C3%A2ntara" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#icone-mapa"/></svg> Abrir no Google Maps
+        </a>
+      </div>
+      <p class="direct">Quer expor ou encomendar? <a href="https://instagram.com/feiraartesabor" target="_blank" rel="noopener">Fale com a gente no direct.</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <img src="logo.png" alt="Logo da Feira Arte e Sabor" width="577" height="577" loading="lazy">
+  <p class="nome-rodape">Feira Arte e Sabor · <em>Kunst und Geschmack</em></p>
+  <small>São Pedro de Alcântara · Santa Catarina</small>
+  <a class="instagram" href="https://instagram.com/feiraartesabor" target="_blank" rel="noopener">
+    <svg aria-hidden="true"><use href="#icone-instagram"/></svg> @feiraartesabor
+  </a>
+</footer>
+
+</body>
+</html>
