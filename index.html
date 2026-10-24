@@ -159,7 +159,7 @@
     .grade-encontra { grid-template-columns: repeat(3, 1fr); }
   }
 
-  /* ===== Toque artesanal: papel, bandeirinhas, costura e polaroides ===== */
+  /* ===== Toque artesanal: papel, costura e polaroides ===== */
   :root {
     --creme: #F1E6D0;
     --creme-escuro: #E6D5B5;
@@ -171,14 +171,6 @@
     background-color: var(--creme);
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .33 0 0 0 0 .18 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
-
-  /* Bandeirinhas de festa */
-  .bandeirinhas {
-    height: 58px; width: 100%;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='58'%3E%3Cpath d='M0 6 Q100 46 200 6' fill='none' stroke='%238B5E34' stroke-width='1.6'/%3E%3Cpath d='M8 9.6h26l-13 30z' fill='%23F4C41C'/%3E%3Cpath d='M48 14.4h26l-13 30z' fill='%233E7D3A'/%3E%3Cpath d='M88 16h26l-13 30z' fill='%23F4C41C'/%3E%3Cpath d='M128 14.4h26l-13 30z' fill='%23C0392B'/%3E%3Cpath d='M168 9.6h26l-13 30z' fill='%23F4C41C'/%3E%3C/svg%3E") repeat-x top center;
-  }
-  .hero { padding-top: 0; }
-  .hero .bandeirinhas { margin-bottom: max(28px, env(safe-area-inset-top)); }
 
   /* Logo como um selo levemente inclinado */
   .hero-logo { transform: rotate(-4deg); filter: drop-shadow(0 10px 14px rgba(26, 26, 26, .18)); }
@@ -193,7 +185,7 @@
   /* Risquinho amarelo feito à mão embaixo dos títulos */
   .secao h2::after {
     content: ''; display: block; width: 96px; height: 12px; margin-top: 12px;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='12'%3E%3Cpath d='M2 7c10-6 18 4 28-1s18-5 28 0 18 4 36-2' fill='none' stroke='%23F4C41C' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='12'%3E%3Cpath d='M2 7c10-6 18 4 28-1s18-5 28 0 18 4 36-2' fill='none' stroke='%233E7D3A' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat;
   }
   .centro h2::after, h2.centro::after, .visite h2::after { margin-inline: auto; }
 
@@ -230,8 +222,22 @@
     outline: 1.5px dashed rgba(244, 196, 28, .45); outline-offset: 0;
   }
 
-  .visite { padding-top: 0; }
-  .visite .bandeirinhas { margin-bottom: 70px; }
+
+  /* Verde em destaque e marrom no lugar do preto */
+  :root { --madeira: #5B3B22; --verde-escuro: #2F6230; }
+  :focus-visible { outline-color: var(--verde); }
+  .botao-principal { background: var(--verde); border-color: var(--verde); color: #FFFDF6; }
+  .botao-principal:hover { background: var(--verde-escuro); border-color: var(--verde-escuro); }
+  .hero h1 .feira { color: var(--verde); }
+  .kunst { color: var(--verde); }
+  .info { outline-color: rgba(62, 125, 58, .7); }
+  .item { outline-color: rgba(62, 125, 58, .5); }
+  .foto::before { background: rgba(62, 125, 58, .5); }
+  .fotos .foto:nth-child(2)::before { background: rgba(244, 196, 28, .62); }
+  .numeros, .visite { background: var(--madeira); }
+  .numeros .envoltorio ul { outline-color: rgba(150, 200, 140, .5); }
+  .numeros span, .visite address, .visite .direct { color: #E9DCC6; }
+  .rodape .nome-rodape em { color: var(--verde); }
 </style>
 </head>
 <body>
@@ -256,7 +262,6 @@
 </svg>
 
 <header class="hero">
-  <div class="bandeirinhas" aria-hidden="true"></div>
   <div class="envoltorio">
     <img class="hero-logo" src="logo.png" alt="Logo da Feira Arte e Sabor: barril com chapéu tirolês, flores amarelas e a frase Kunst und Geschmack" width="577" height="577">
     <h1><span class="feira">Feira</span><span class="nome">Arte e Sabor</span></h1>
@@ -294,35 +299,35 @@
       <div class="grade-encontra">
         <div class="item">
           <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M8 32 30 10"/><ellipse cx="31.5" cy="8.5" rx="2.2" ry="1" transform="rotate(-45 31.5 8.5)"/><path d="M14 30c4 2 10 1 14-4s3-11-2-12"/><circle cx="12" cy="11" r="3.5" fill="#F4C41C" stroke="none"/>
+            <path d="M8 32 30 10"/><ellipse cx="31.5" cy="8.5" rx="2.2" ry="1" transform="rotate(-45 31.5 8.5)"/><path d="M14 30c4 2 10 1 14-4s3-11-2-12"/><circle cx="12" cy="11" r="3.5" fill="#3E7D3A" stroke="none"/>
           </svg>
           <h3>Artesanato feito à mão</h3>
           <p>25 expositores mostrando o que produzem, com venda na hora e encomendas.</p>
         </div>
         <div class="item">
           <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M20 30c-6 4-14 1-14-7 0-6 5-10 10-9 3 .6 4 3 4 6M20 30c6 4 14 1 14-7 0-6-5-10-10-9-3 .6-4 3-4 6M20 20c-2 3-5 4-8 3M20 20c2 3 5 4 8 3"/><circle cx="33" cy="8" r="3.5" fill="#F4C41C" stroke="none"/>
+            <path d="M20 30c-6 4-14 1-14-7 0-6 5-10 10-9 3 .6 4 3 4 6M20 30c6 4 14 1 14-7 0-6-5-10-10-9-3 .6-4 3-4 6M20 20c-2 3-5 4-8 3M20 20c2 3 5 4 8 3"/><circle cx="33" cy="8" r="3.5" fill="#3E7D3A" stroke="none"/>
           </svg>
           <h3>Sabores de base alemã</h3>
           <p>A gastronomia local que é a cara da cidade.</p>
         </div>
         <div class="item">
           <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M15 29V9l18-4v20"/><circle cx="11" cy="29" r="4"/><circle cx="29" cy="25" r="4"/><path d="M15 15l18-4"/><circle cx="7" cy="9" r="3.5" fill="#F4C41C" stroke="none"/>
+            <path d="M15 29V9l18-4v20"/><circle cx="11" cy="29" r="4"/><circle cx="29" cy="25" r="4"/><path d="M15 15l18-4"/><circle cx="7" cy="9" r="3.5" fill="#3E7D3A" stroke="none"/>
           </svg>
           <h3>Música ao vivo e dança</h3>
           <p>Apresentações que fazem a praça virar palco.</p>
         </div>
         <div class="item">
           <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <ellipse cx="17" cy="23" rx="9" ry="11.5"/><path d="M10 20c3 2 5-2 7 0s4 2 7 0M10 27c3 2 5-2 7 0s4 2 7 0"/><path d="M27 13l8-8"/><circle cx="33" cy="30" r="3.5" fill="#F4C41C" stroke="none"/>
+            <ellipse cx="17" cy="23" rx="9" ry="11.5"/><path d="M10 20c3 2 5-2 7 0s4 2 7 0M10 27c3 2 5-2 7 0s4 2 7 0"/><path d="M27 13l8-8"/><circle cx="33" cy="30" r="3.5" fill="#3E7D3A" stroke="none"/>
           </svg>
           <h3>Oficinas abertas</h3>
           <p>Pintura de casca de ovo para a Osterbaum, bolachas de Natal e artesanato, feitas pelos próprios feirantes.</p>
         </div>
         <div class="item">
           <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M7 14h26v19H7z"/><path d="M5 9h30v5H5zM20 9v24"/><path d="M20 9c-3-5-9-5-9-2s5 2 9 2c4 0 9 1 9-2s-6-3-9 2"/><circle cx="33" cy="33" r="3.5" fill="#F4C41C" stroke="none"/>
+            <path d="M7 14h26v19H7z"/><path d="M5 9h30v5H5zM20 9v24"/><path d="M20 9c-3-5-9-5-9-2s5 2 9 2c4 0 9 1 9-2s-6-3-9 2"/><circle cx="33" cy="33" r="3.5" fill="#3E7D3A" stroke="none"/>
           </svg>
           <h3>Encomendas</h3>
           <p>Direto com quem produz.</p>
@@ -386,7 +391,6 @@
   </section>
 
   <section class="secao visite" id="visite">
-    <div class="bandeirinhas" aria-hidden="true"></div>
     <div class="envoltorio">
       <svg class="flor" style="width:30px;height:30px;margin:0 auto 22px;display:block" aria-hidden="true"><use href="#flor"/></svg>
       <h2>Todo segundo sábado do mês, a praça vira o lugar mais bonito da cidade. Vem viver de perto.</h2>
