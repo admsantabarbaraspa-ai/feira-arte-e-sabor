@@ -296,6 +296,39 @@
   }
   .foto-recheio { aspect-ratio: 4 / 5; padding: 0; width: 100%; max-width: 440px; justify-self: center; margin-inline: auto; }
   .foto-recheio img { object-position: center; border-radius: 0; }
+
+  /* Galerias de fotos */
+  .galeria { display: grid; gap: 26px 18px; margin: 56px auto 0; }
+  .galeria .foto { aspect-ratio: 4 / 5; padding: 0; border-width: 8px; border-bottom-width: 28px; }
+  .galeria .foto img { border-radius: 0; }
+  .galeria .foto::before { width: 64px; height: 20px; top: -14px; }
+  .galeria .foto:nth-child(odd) { transform: rotate(-1.4deg); }
+  .galeria .foto:nth-child(even) { transform: rotate(1.4deg); }
+  .galeria-4 { grid-template-columns: repeat(2, 1fr); max-width: 980px; }
+  .galeria-3 { grid-template-columns: repeat(3, 1fr); max-width: 760px; gap: 18px 12px; }
+  .galeria-3 .foto { border-width: 5px; border-bottom-width: 18px; }
+  .galeria-3 .foto::before { width: 46px; height: 16px; top: -10px; }
+  .fotos.galeria { grid-template-rows: none; }
+  .fotos.galeria .foto:first-child { grid-row: auto; aspect-ratio: 4 / 5; }
+  .foto-retrato { aspect-ratio: 4 / 5; padding: 0; width: 100%; max-width: 440px; justify-self: center; margin-inline: auto; }
+  .foto-retrato img { border-radius: 0; }
+  .foto-cucas img { object-position: 50% 22%; }
+
+  /* Apoiadores */
+  .apoiador {
+    display: flex; align-items: center; gap: 14px; padding: 12px 18px 12px 12px; border-radius: 12px;
+    background: #FFFDF8; border: 1px solid var(--linha);
+  }
+  .apoiador img { width: 64px; height: 64px; }
+  .apoiador span { font-size: .92rem; line-height: 1.3; max-width: 16ch; }
+  .apoiador-texto { padding: 12px 22px; min-height: 90px; }
+  .apoiador-texto span { font-family: var(--titulo); font-size: 1.3rem; }
+
+  @media (min-width: 768px) {
+    .galeria-4 { grid-template-columns: repeat(4, 1fr); }
+    .galeria-3 { gap: 26px 22px; }
+    .galeria-3 .foto { border-width: 8px; border-bottom-width: 28px; }
+  }
 </style>
 </head>
 <body>
@@ -362,6 +395,11 @@
           <p>Sábado, 12 de dezembro</p>
         </li>
       </ul>
+      <div class="galeria galeria-3">
+        <div class="foto"><img src="fotos/artesanato-natal.webp" alt="Guirlanda artesanal de Natal com Papai Noel, laço vermelho e coração de juta" width="640" height="1103" loading="lazy" decoding="async"></div>
+        <div class="foto"><img src="fotos/oficina-bolachas-natal.webp" alt="Oficina de bolachinhas de Natal: massa aberta e biscoitos cortados em formato de estrela e coração" width="640" height="1138" loading="lazy" decoding="async"></div>
+        <div class="foto"><img src="fotos/mesa-guloseimas-natal.webp" alt="Montagem da mesa de guloseimas da Feira de Natal sob o quiosque da praça" width="640" height="1138" loading="lazy" decoding="async"></div>
+      </div>
     </div>
   </section>
 
@@ -431,11 +469,11 @@
         </div>
       </div>
 
-      <!-- Fotos: troque cada <div class="foto"> por <div class="foto"><img src="fotos/NOME.jpg" alt="DESCRIÇÃO" loading="lazy"></div> -->
-      <div class="fotos">
-        <div class="foto" role="img" aria-label="Espaço para foto de artesão trabalhando">Foto: artesão trabalhando</div>
-        <div class="foto" role="img" aria-label="Espaço para foto das barracas na praça">Foto: barracas na praça</div>
-        <div class="foto" role="img" aria-label="Espaço para foto da gastronomia da feira">Foto: gastronomia da feira</div>
+      <div class="fotos galeria galeria-4">
+        <div class="foto"><img src="fotos/dia-de-feira.webp" alt="Dia de feira na Praça Leopoldo Francisco Kretzer, com tendas verdes, mesas e visitantes sob as árvores" width="640" height="1138" loading="lazy" decoding="async"></div>
+        <div class="foto"><img src="fotos/cachaca-artesanal-kretzer.webp" alt="Garrafas de cachaça artesanal Kretzer com rótulo de brasão, à venda na feira" width="640" height="1143" loading="lazy" decoding="async"></div>
+        <div class="foto"><img src="fotos/oficina-cupcake-criancas.webp" alt="Crianças na praça mostrando os cupcakes que decoraram na oficina da feira" width="640" height="1138" loading="lazy" decoding="async"></div>
+        <div class="foto"><img src="fotos/chapeu-caneca-oktobertanz.webp" alt="Chapéu tirolês com pena e canecas oficiais da Oktobertanz expostos na feira" width="640" height="514" loading="lazy" decoding="async"></div>
       </div>
     </div>
   </section>
@@ -459,7 +497,7 @@
           <p>A cultura de base alemã vive na feira. Está na Osterbaum da praça, nas bolachas de Natal e no nosso Festival de Cucas, que já teve duas edições de sucesso.</p>
         </div>
       </div>
-      <div class="foto" role="img" aria-label="Espaço para foto do Festival de Cucas ou da Osterbaum">Foto: Festival de Cucas ou Osterbaum</div>
+      <div class="foto foto-retrato foto-cucas"><img src="fotos/festival-cucas-premiacao.webp" alt="Marli e Nilzabete entregam o prêmio à vencedora do 2º Festival de Cucas na praça" width="720" height="1280" loading="lazy" decoding="async"></div>
     </div>
   </section>
 
@@ -471,8 +509,8 @@
         <p>Contamos com o apoio da Prefeitura de São Pedro de Alcântara e da Epagri.</p>
       </div>
       <div class="apoiadores">
-        <div class="foto" role="img" aria-label="Espaço para a logo da Prefeitura de São Pedro de Alcântara">Logo: Prefeitura</div>
-        <div class="foto" role="img" aria-label="Espaço para a logo da Epagri">Logo: Epagri</div>
+        <div class="apoiador"><img src="fotos/brasao-prefeitura.webp" alt="Brasão da Prefeitura de São Pedro de Alcântara" width="420" height="420" loading="lazy"><span>Prefeitura de São Pedro de Alcântara</span></div>
+        <div class="apoiador apoiador-texto"><span>Epagri</span></div>
       </div>
     </div>
   </section>
