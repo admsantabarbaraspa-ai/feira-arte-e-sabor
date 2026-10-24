@@ -238,6 +238,62 @@
   .numeros .envoltorio ul { outline-color: rgba(150, 200, 140, .5); }
   .numeros span, .visite address, .visite .direct { color: #E9DCC6; }
   .rodape .nome-rodape em { color: var(--verde); }
+
+  /* Faixa de local e hora em marrom claro */
+  .info { background: var(--marrom); color: #FFF8EA; outline-color: rgba(255, 248, 234, .6); }
+  .info span + span::before { color: #F4C41C; }
+
+  /* Datas: cartões de calendário */
+  .intro-datas { color: var(--grafite-suave); max-width: 34rem; margin: -8px auto 34px; }
+  .datas { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
+  .data {
+    position: relative; display: grid; grid-template-columns: auto 1fr; gap: 4px 20px; align-items: center;
+    background: var(--cartao); border-radius: 14px; padding: 22px 24px;
+    outline: 1.5px dashed rgba(62, 125, 58, .5); outline-offset: -9px;
+  }
+  .data .dia {
+    grid-row: span 2; display: grid; place-items: center; width: 78px; height: 78px; border-radius: 12px;
+    background: var(--verde); color: #FFFDF6; text-align: center; line-height: 1;
+  }
+  .data .dia strong { display: block; font-family: var(--titulo); font-size: 2rem; }
+  .data .dia small { display: block; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; margin-top: 4px; }
+  .data h3 { font-size: 1.35rem; }
+  .data p { color: var(--grafite-suave); font-size: .95rem; }
+  .data.especial .dia { background: var(--marrom); }
+  .data.especial::after {
+    content: ''; position: absolute; right: 18px; top: 18px; width: 26px; height: 26px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='%23F4C41C'%3E%3Ccircle cx='12' cy='6' r='4.6'/%3E%3Ccircle cx='17.7' cy='10.2' r='4.6'/%3E%3Ccircle cx='15.5' cy='17' r='4.6'/%3E%3Ccircle cx='8.5' cy='17' r='4.6'/%3E%3Ccircle cx='6.3' cy='10.2' r='4.6'/%3E%3C/g%3E%3Ccircle cx='12' cy='12' r='2.2' fill='%231A1A1A'/%3E%3C/svg%3E") no-repeat center / contain;
+  }
+
+  /* Recheio alemão */
+  .recheio { background-color: var(--creme-escuro); }
+  .selo {
+    display: inline-grid; place-items: center; text-align: center;
+    width: 132px; height: 132px; border-radius: 50%; margin-bottom: 26px;
+    background: var(--verde); color: #FFFDF6; transform: rotate(-8deg);
+    outline: 1.5px dashed rgba(255, 253, 246, .7); outline-offset: -8px;
+    font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; line-height: 1.35;
+  }
+  .selo strong { display: block; font-family: var(--titulo); font-size: 1.05rem; letter-spacing: .02em; text-transform: none; }
+  .recheio .destaque { font-family: var(--titulo); font-size: clamp(1.25rem, 4.4vw, 1.5rem); color: var(--grafite); line-height: 1.4; }
+
+  /* Calendário do ano que vem */
+  .calendario { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .calendario li {
+    display: grid; justify-items: center; gap: 2px; padding: 18px 8px 16px; border-radius: 12px;
+    background: var(--cartao); border-top: 6px solid var(--verde);
+    box-shadow: 0 8px 18px -14px rgba(26, 26, 26, .5);
+  }
+  .calendario li:nth-child(even) { border-top-color: var(--marrom); }
+  .calendario strong { font-family: var(--titulo); font-size: 2.1rem; line-height: 1; }
+  .calendario span { font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; color: var(--grafite-suave); }
+
+  @media (min-width: 768px) {
+    .datas { grid-template-columns: repeat(3, 1fr); }
+    .data { grid-template-columns: 1fr; justify-items: center; text-align: center; padding: 32px 22px 28px; }
+    .data .dia { grid-row: auto; margin-bottom: 10px; }
+    .calendario { grid-template-columns: repeat(5, 1fr); }
+  }
 </style>
 </head>
 <body>
@@ -282,6 +338,31 @@
 <div class="divisor" aria-hidden="true"><svg class="flor"><use href="#flor"/></svg></div>
 
 <main>
+  <!-- Cada data some sozinha depois que passa (data-ate). Quando todas passarem, a seção some. -->
+  <section class="secao" id="proximas" style="padding-bottom:0">
+    <div class="envoltorio centro">
+      <h2>Fim de ano na praça</h2>
+      <p class="intro-datas">Novembro tem feira em dobro. E dezembro fecha o ano com a Feira de Natal.</p>
+      <ul class="datas">
+        <li class="data" data-ate="2026-11-14">
+          <div class="dia"><strong>14</strong><small>nov</small></div>
+          <h3>Feira de novembro</h3>
+          <p>Sábado, 14 de novembro</p>
+        </li>
+        <li class="data especial" data-ate="2026-11-28">
+          <div class="dia"><strong>28</strong><small>nov</small></div>
+          <h3>Feira extra</h3>
+          <p>Sábado, 28 de novembro</p>
+        </li>
+        <li class="data especial" data-ate="2026-12-12">
+          <div class="dia"><strong>12</strong><small>dez</small></div>
+          <h3>Feira de Natal</h3>
+          <p>Sábado, 12 de dezembro</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
   <section class="secao" id="historia">
     <div class="envoltorio estreito">
       <h2 class="centro">Nossa história</h2>
@@ -293,7 +374,21 @@
     </div>
   </section>
 
-  <section class="secao" id="encontra" style="padding-top:0">
+  <section class="secao recheio" id="recheio">
+    <div class="envoltorio duas-colunas">
+      <div>
+        <div class="selo" aria-hidden="true"><span><strong>Patrimônio</strong>imaterial<br>de SC</span></div>
+        <h2>Recheio alemão</h2>
+        <div class="texto">
+          <p class="destaque">O recheio é patrimônio imaterial de São Pedro de Alcântara e de Santa Catarina.</p>
+          <p>Receita de família, passada de geração em geração. Na feira, ele tem lugar de honra.</p>
+        </div>
+      </div>
+      <div class="foto" role="img" aria-label="Espaço para foto do recheio alemão">Foto: recheio alemão</div>
+    </div>
+  </section>
+
+  <section class="secao" id="encontra">
     <div class="envoltorio">
       <h2 class="centro">O que você encontra</h2>
       <div class="grade-encontra">
@@ -403,7 +498,37 @@
       <p class="direct">Quer expor ou encomendar? <a href="https://instagram.com/feiraartesabor" target="_blank" rel="noopener">Fale com a gente no direct.</a></p>
     </div>
   </section>
+  <section class="secao" id="calendario">
+    <div class="envoltorio centro">
+      <h2>Feiras de 2027</h2>
+      <p class="intro-datas">Já anota na agenda. Todas num sábado, das 9h às 17h, na praça.</p>
+      <ul class="calendario">
+        <li><strong>13</strong><span>março</span></li>
+        <li><strong>10</strong><span>abril</span></li>
+        <li><strong>8</strong><span>maio</span></li>
+        <li><strong>12</strong><span>junho</span></li>
+        <li><strong>10</strong><span>julho</span></li>
+        <li><strong>14</strong><span>agosto</span></li>
+        <li><strong>11</strong><span>setembro</span></li>
+        <li><strong>9</strong><span>outubro</span></li>
+        <li><strong>13</strong><span>novembro</span></li>
+        <li><strong>11</strong><span>dezembro</span></li>
+      </ul>
+    </div>
+  </section>
 </main>
+
+<script>
+  // Tira as feiras que já passaram; se não sobrar nenhuma, esconde a seção
+  (function () {
+    var hoje = new Date()
+    var iso = hoje.getFullYear() + '-' + String(hoje.getMonth() + 1).padStart(2, '0') + '-' + String(hoje.getDate()).padStart(2, '0')
+    var itens = document.querySelectorAll('#proximas [data-ate]')
+    var restantes = 0
+    itens.forEach(function (li) { if (li.getAttribute('data-ate') < iso) li.remove(); else restantes++ })
+    if (!restantes) document.getElementById('proximas').remove()
+  })()
+</script>
 
 <footer class="rodape">
   <img src="logo.png" alt="Logo da Feira Arte e Sabor" width="577" height="577" loading="lazy">
