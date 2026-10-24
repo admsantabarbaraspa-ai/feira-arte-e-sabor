@@ -158,6 +158,80 @@
   @media (min-width: 1080px) {
     .grade-encontra { grid-template-columns: repeat(3, 1fr); }
   }
+
+  /* ===== Toque artesanal: papel, bandeirinhas, costura e polaroides ===== */
+  :root {
+    --creme: #F1E6D0;
+    --creme-escuro: #E6D5B5;
+    --cartao: #FAF3E4;
+    --linha: #D3C3A2;
+    --costura: rgba(139, 94, 52, .55);
+  }
+  body {
+    background-color: var(--creme);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .33 0 0 0 0 .18 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Bandeirinhas de festa */
+  .bandeirinhas {
+    height: 58px; width: 100%;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='58'%3E%3Cpath d='M0 6 Q100 46 200 6' fill='none' stroke='%238B5E34' stroke-width='1.6'/%3E%3Cpath d='M8 9.6h26l-13 30z' fill='%23F4C41C'/%3E%3Cpath d='M48 14.4h26l-13 30z' fill='%233E7D3A'/%3E%3Cpath d='M88 16h26l-13 30z' fill='%23F4C41C'/%3E%3Cpath d='M128 14.4h26l-13 30z' fill='%23C0392B'/%3E%3Cpath d='M168 9.6h26l-13 30z' fill='%23F4C41C'/%3E%3C/svg%3E") repeat-x top center;
+  }
+  .hero { padding-top: 0; }
+  .hero .bandeirinhas { margin-bottom: max(28px, env(safe-area-inset-top)); }
+
+  /* Logo como um selo levemente inclinado */
+  .hero-logo { transform: rotate(-4deg); filter: drop-shadow(0 10px 14px rgba(26, 26, 26, .18)); }
+
+  /* Etiqueta de papel kraft com costura */
+  .info {
+    border: 0; background: #E2CBA0; padding: 14px 24px; border-radius: 6px;
+    outline: 1.5px dashed var(--costura); outline-offset: -7px;
+    transform: rotate(-1deg);
+  }
+
+  /* Risquinho amarelo feito à mão embaixo dos títulos */
+  .secao h2::after {
+    content: ''; display: block; width: 96px; height: 12px; margin-top: 12px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='12'%3E%3Cpath d='M2 7c10-6 18 4 28-1s18-5 28 0 18 4 36-2' fill='none' stroke='%23F4C41C' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat;
+  }
+  .centro h2::after, h2.centro::after, .visite h2::after { margin-inline: auto; }
+
+  /* Cartões costurados */
+  .item {
+    background: var(--cartao); border-radius: 14px; padding: 26px 24px;
+    outline: 1.5px dashed var(--costura); outline-offset: -9px;
+  }
+
+  /* Fotos como polaroides presas com fita */
+  .foto {
+    position: relative; border-radius: 3px;
+    background: #DDD3BF; border: 10px solid #FFFCF5; border-bottom-width: 40px;
+    box-shadow: 0 10px 22px -14px rgba(26, 26, 26, .55);
+    transform: rotate(-1.2deg);
+  }
+  .foto::before {
+    content: ''; position: absolute; top: -24px; left: 50%; width: 92px; height: 26px;
+    background: rgba(244, 196, 28, .62); transform: translateX(-50%) rotate(-3deg);
+  }
+  .fotos .foto:nth-child(2), #tradicao .foto { transform: rotate(1.6deg); }
+  .fotos .foto:nth-child(3) { transform: rotate(-.6deg); }
+  .fotos { gap: 34px 22px; }
+  .apoiadores .foto {
+    border: 1px dashed var(--linha); border-radius: 8px; box-shadow: none; transform: none; background: var(--cartao);
+  }
+  .apoiadores .foto::before { display: none; }
+
+  .apoio { background-color: var(--creme-escuro); }
+
+  /* Números com moldura costurada */
+  .numeros .envoltorio ul {
+    padding: 34px 12px; border-radius: 12px;
+    outline: 1.5px dashed rgba(244, 196, 28, .45); outline-offset: 0;
+  }
+
+  .visite { padding-top: 0; }
+  .visite .bandeirinhas { margin-bottom: 70px; }
 </style>
 </head>
 <body>
@@ -182,6 +256,7 @@
 </svg>
 
 <header class="hero">
+  <div class="bandeirinhas" aria-hidden="true"></div>
   <div class="envoltorio">
     <img class="hero-logo" src="logo.png" alt="Logo da Feira Arte e Sabor: barril com chapéu tirolês, flores amarelas e a frase Kunst und Geschmack" width="577" height="577">
     <h1><span class="feira">Feira</span><span class="nome">Arte e Sabor</span></h1>
@@ -311,6 +386,7 @@
   </section>
 
   <section class="secao visite" id="visite">
+    <div class="bandeirinhas" aria-hidden="true"></div>
     <div class="envoltorio">
       <svg class="flor" style="width:30px;height:30px;margin:0 auto 22px;display:block" aria-hidden="true"><use href="#flor"/></svg>
       <h2>Todo segundo sábado do mês, a praça vira o lugar mais bonito da cidade. Vem viver de perto.</h2>
